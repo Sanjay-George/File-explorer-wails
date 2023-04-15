@@ -1,8 +1,13 @@
-# README
-
-## About
-
+# Wails dummy App
 A dummy file explorer app to learn Wails (Go, Svelte, TS)
+
+## Installation
+https://wails.io/docs/gettingstarted/installation
+
+## Docs
+* Go: https://go.dev/doc/effective_go
+* Svelte: https://svelte.dev/docs
+* Wails: https://wails.io/docs/howdoesitwork
 
 ## Live Development
 
