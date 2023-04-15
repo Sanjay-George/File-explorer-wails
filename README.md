@@ -2,7 +2,7 @@
 
 ## About
 
-This is the official Wails Svelte-TS template.
+A dummy file explorer app to learn Wails (Go, Svelte, TS)
 
 ## Live Development
 
