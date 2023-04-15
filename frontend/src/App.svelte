@@ -1,13 +1,29 @@
 <script lang="ts">
   import logo from './assets/images/logo-universal.png'
-  import {Greet} from '../wailsjs/go/main/App.js'
+  import {Greet, GetFiles, GetFolders} from '../wailsjs/go/main/App.js'
+    import { onMount } from 'svelte';
 
   let resultText: string = "Please enter your name below 👇"
   let name: string
+  let files = [];
+  let folders = [];
 
   function greet(): void {
-    Greet(name).then(result => resultText = result)
+    Greet(name).then(result => resultText = `${result} Or later, who cares?!`)
   }
+
+  function getFiles(): void {
+    GetFiles().then(res => files = res)
+  }
+
+  function getFolders(): void {
+    GetFolders().then(res => folders = res)
+  }
+
+  onMount(() => {
+    getFiles();
+    getFolders();
+  })
 </script>
 
 <main>
@@ -17,6 +33,23 @@
     <input autocomplete="off" bind:value={name} class="input" id="name" type="text"/>
     <button class="btn" on:click={greet}>Greet</button>
   </div>
+
+  
+  <h2>Folders:</h2>
+  <ul>
+      {#each folders as folder (folder)}
+          <li>{folder}</li>
+      {/each}
+  </ul>
+  
+  <!-- Display files -->
+  <h2>Files:</h2>
+  <ul>
+      {#each files as file (file)}
+          <li>{file}</li>
+      {/each}
+  </ul>
+  
 </main>
 
 <style>
